@@ -1,0 +1,965 @@
+<html lang="en" dir="ltr"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="facebook-domain-verification" content="ps3ycywhwbd7zbuzjkzgtb9u4bcby8">
+        <title>Onirix Studio</title>
+        <base href="/">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+
+        
+            <meta name="title" content="Onir-IX robot picker 🤖">
+            <meta name="description" content="Check out this WebAR experience powered by Onirix.">
+            <meta property="og:title" content="Onir-IX robot picker 🤖">
+            <meta property="og:description" content="Check out this WebAR experience powered by Onirix.">
+            <meta property="og:url" content="https://studio.onirix.com/api/projects/ab57c192-51ad-4950-85fe-0c0a28e7ad0d/webar?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5ODM1LCJwcm9qZWN0SWQiOjQ3MjY3LCJyb2xlIjozLCJpYXQiOjE2ODczNDE0MzB9.URvwabgFixxReiFRhaBz32sOvngMIdR3_IgEkaMgoz4">
+            <meta property="og:site_name" content="Onirix">
+            <meta property="og:type" content="website">
+            <meta property="og:image" content="https://studio.onirix.com/assets/images/webar-meta.png">
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:title" content="Onir-IX robot picker 🤖">
+            <meta property="twitter:description" content="Check out this WebAR experience powered by Onirix.">
+            <meta property="twitter:url" content="https://studio.onirix.com/api/projects/ab57c192-51ad-4950-85fe-0c0a28e7ad0d/webar?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5ODM1LCJwcm9qZWN0SWQiOjQ3MjY3LCJyb2xlIjozLCJpYXQiOjE2ODczNDE0MzB9.URvwabgFixxReiFRhaBz32sOvngMIdR3_IgEkaMgoz4">
+            <meta property="twitter:image:src" content="https://studio.onirix.com/assets/images/webar-meta.png">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        
+
+        <script src="https://connect.facebook.net/signals/config/1332790333934715?v=2.9.109&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="/assets/draco/draco_encoder.js"></script>
+        <script src="/assets/draco/draco_decoder.js"></script>
+    <style>:root{--color-primary-solid:#ee0979;--color-primary-gradient:linear-gradient(90deg, #ee0979 0%, #f6414b 100%);--color-core-white:#fff;--color-core-dark01:#211f1f;--color-core-dark02:#31004c;--color-core-dark03:#c2c2c2;--color-red-pink:#f32579;--color-secondary:#580088;--color-selected:#ee0979;--color-warning:#f5a623;--color-error:#e90e0e;--color-tertiary01:#0155d2;--color-tertiary02:#ff794a;--color-dragover:#207ce8;--color-gray01:#b6b1b9;--color-gray02:#e3e1e5;--color-gray03:#f2f1f3;--color-success-01:#47d664;--font-primary:"Open Sans";--font-secondary:"Source Sans Pro"}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV0ewIMUdjFXmSU_.8578e71b5887ee6c.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVQewIMUdjFXmSU_.c5b80bac005a0059.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVwewIMUdjFXmSU_.81cbb186d7820f39.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVMewIMUdjFXmSU_.49dbd6bceb1ac669.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVIewIMUdjFXmSU_.86d4120bae3fecdb.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV8ewIMUdjFXmSU_.f2882fd258af44ae.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewIMUdjFXmSU_.39ca15f360ab217c.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Open Sans;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVAewIMUdjFXmQ.c726cbffa8bb1ec4.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.75c6578c0e7ebfd8.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.1b496f798a642250.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.ac361f64331e3beb.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.e3e909ff52605f18.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.230e62120f6d785b.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.e859973cdb7f6b3d.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.fd72bbd943f0444a.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.647e3efd824faf1c.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.75c6578c0e7ebfd8.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.1b496f798a642250.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.ac361f64331e3beb.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.e3e909ff52605f18.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.230e62120f6d785b.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.e859973cdb7f6b3d.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.fd72bbd943f0444a.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:600;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.647e3efd824faf1c.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.75c6578c0e7ebfd8.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.1b496f798a642250.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.ac361f64331e3beb.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.e3e909ff52605f18.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.230e62120f6d785b.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.e859973cdb7f6b3d.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.fd72bbd943f0444a.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.647e3efd824faf1c.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.75c6578c0e7ebfd8.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.1b496f798a642250.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.ac361f64331e3beb.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.e3e909ff52605f18.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.230e62120f6d785b.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.e859973cdb7f6b3d.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.fd72bbd943f0444a.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Open Sans;font-style:normal;font-weight:800;font-stretch:100%;font-display:swap;src:url(memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.647e3efd824faf1c.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.90ce457ee8cec043.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.547209254fbd4c57.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.bb83722ca01b414e.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.af9d511c7a25f62f.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.2bfd4e61e1166e96.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.5b53e30508a1d486.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:400;font-display:swap;src:url(6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.0a598dacd7753a3d.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmhdu3cOWxy40.c762c418d6be0c3e.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwkxdu3cOWxy40.4cb356a442b04689.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmxdu3cOWxy40.20fca0a84b06d374.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlBdu3cOWxy40.2dbc97c4c2289ed4.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmBdu3cOWxy40.432f2e0b78f23da1.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmRdu3cOWxy40.5a0e25fdf0c81b16.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:600;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu3cOWxw.44c0af0225aaf214.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmhdu3cOWxy40.513927dbe5264c6d.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwkxdu3cOWxy40.e2c1a50d93b82a17.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmxdu3cOWxy40.30d2173387678482.woff2) format("woff2");unicode-range:U+1F00-1FFF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlBdu3cOWxy40.e81100bd7094716d.woff2) format("woff2");unicode-range:U+0370-03FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmBdu3cOWxy40.b30e290aaaab3f0c.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmRdu3cOWxy40.81e76bdfea3e4867.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Source Sans Pro;font-style:normal;font-weight:700;font-display:swap;src:url(6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu3cOWxw.527cd2c4b526dec1.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}html{height:100%}body{margin:0;padding:0;height:100%;font-size:14px;font-family:var(--font-primary),"Trebuchet MS",Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--color-core-dark01);-ms-overflow-style:-ms-autohiding-scrollbar;overflow-x:hidden}</style><link rel="stylesheet" href="styles.fdf06a1c9300417d.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.fdf06a1c9300417d.css"></noscript><style>[_nghost-nsn-c119]{height:100%}</style><style>@charset "UTF-8";.notifications[_ngcontent-nsn-c92]{position:absolute;bottom:40px;left:40px;z-index:1002}.notification[_ngcontent-nsn-c92]{min-width:242px;max-width:282px;min-height:58px;box-sizing:border-box;border:1px solid var(--color-core-white);border-left:4px solid var(--color-success-01);background-color:var(--color-core-white);color:#2d2926;border-radius:4px;font-size:14px;animation:_ngcontent-nsn-c92_bounce-up .3s linear;margin-bottom:20px}.notification__container[_ngcontent-nsn-c92]{display:grid;grid-template-columns:.01fr 1fr .15fr;min-width:242px;max-width:282px;min-height:58px;box-shadow:0 2px 12px #211f1f3d}.notification__title-bold[_ngcontent-nsn-c92]{font-weight:700;margin:0}.notification__title[_ngcontent-nsn-c92]{display:flex;align-items:center;margin-left:10px;font-size:14px;padding-top:6px;padding-bottom:6px}.notification__icon[_ngcontent-nsn-c92]{display:flex;align-items:center;margin-left:10px}.notification__close[_ngcontent-nsn-c92]{display:flex;align-items:center;margin-left:20px;margin-right:2px;cursor:pointer}.notification--error[_ngcontent-nsn-c92]{border-left-color:var(--color-error)}.notification--warn[_ngcontent-nsn-c92]{border-left-color:var(--color-warning)}.notification--closed[_ngcontent-nsn-c92]{opacity:0;transition-property:opacity;transition-duration:.3s}.notification--flash-start[_ngcontent-nsn-c92]{opacity:.3}.notification--flash-end[_ngcontent-nsn-c92]{opacity:1}.notifications[_ngcontent-nsn-c92]:last-child{margin-bottom:0}@keyframes _ngcontent-nsn-c92_bounce-up{0%{margin-bottom:-10px}to{margin-bottom:20px}}</style><style>.loading-container[_ngcontent-nsn-c62]{position:fixed;z-index:2000;height:2em;overflow:visible;margin:auto;inset:0}.loading-container[_ngcontent-nsn-c62]:before{content:"";display:block;position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000000e6}.loading-container.ox-loading-light[_ngcontent-nsn-c62]:before{opacity:.5}.center[_ngcontent-nsn-c62]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px}.center[_ngcontent-nsn-c62]   svg-icon[_ngcontent-nsn-c62]{display:inline-block;margin-bottom:30px;margin-left:auto;margin-right:auto}.center[_ngcontent-nsn-c62]   .ox-img-center[_ngcontent-nsn-c62]{text-align:center}.center[_ngcontent-nsn-c62]     svg use#fill-1, .center[_ngcontent-nsn-c62]     svg path#fill-2{fill:var(--color-core-white)}.center[_ngcontent-nsn-c62]     svg path#fill-3{fill:var(--color-core-dark01)}</style><style>[_nghost-nsn-c135]{overflow:hidden;width:100%;height:100%;display:block;overscroll-behavior-y:contain}ox-datasheet-content[_ngcontent-nsn-c135]{position:absolute;z-index:101}ox-error-screen[_ngcontent-nsn-c135]{position:absolute;inset:0}#overlay[_ngcontent-nsn-c135]{background-color:#231532;width:100vw;height:100vh}#injection-root[_ngcontent-nsn-c135]{position:absolute;top:0;left:0;z-index:1}#webar-switch-to-ar-button[_ngcontent-nsn-c135]{position:absolute;bottom:40px;left:calc(50% - 73px);z-index:1;width:146px;height:48px;box-sizing:border-box;background-color:var(--color-gray03);border:1px solid var(--color-core-dark03);border-radius:10px;box-shadow:0 0 #11021900;font-family:var(--font-primary);font-weight:700;font-size:16px;color:var(--color-core-dark01);line-height:22px;text-align:center;display:flex;justify-content:center;align-items:center;cursor:pointer;-webkit-user-select:none;user-select:none;transition:box-shadow .2s,bottom 1s ease-in-out}#webar-switch-to-ar-button[_ngcontent-nsn-c135]:disabled, #webar-switch-to-ar-button[_ngcontent-nsn-c135]:enabled:hover{box-shadow:0 2px 14px #11021914}@media only screen and (orientation: landscape){#webar-switch-to-ar-button[_ngcontent-nsn-c135]{left:auto;bottom:40px;right:40px}}#webar-switch-to-ar-button.loading[_ngcontent-nsn-c135]{bottom:100px}canvas[_ngcontent-nsn-c135]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:1;transition:opacity .2s}.ox-webar-renderer--initializing[_ngcontent-nsn-c135]{opacity:0}</style><style>#ox-progress-bar-container[_ngcontent-nsn-c120]{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);color:var(--color-core-white);height:0px;transition:height 1s ease-in-out;-webkit-transition:height 1s ease-in-out;-moz-transition:height 1s ease-in-out;-o-transition:height 1s ease-in-out}#ox-progress-bar[_ngcontent-nsn-c120]{position:absolute;background-color:var(--color-secondary);height:100%;transition:background-color 1s ease;-webkit-transition:background-color 1s ease;-moz-transition:background-color 1s ease;-o-transition:background-color 1s ease}#ox-progress-bar.completed[_ngcontent-nsn-c120]{background-color:#2edbaf;font-weight:700}#ox-progress-content[_ngcontent-nsn-c120]{position:absolute;display:flex;align-items:center;height:100%;width:calc(100% - 40px);padding:0 20px}#ox-progress-loading-text[_ngcontent-nsn-c120]{flex:1 1 0;height:100%;line-height:60px}#ox-progress-percentage-text[_ngcontent-nsn-c120]{margin-left:auto;font-weight:700;height:100%;line-height:60px}</style><style>.ox-resize[_ngcontent-nsn-c123]{top:46.9%;transition:top .2s}.ox-resize.dndDragging[_ngcontent-nsn-c123]{transition:all .1s linear!important}.ox-resize.ox-resize-full[_ngcontent-nsn-c123]{top:0}.ox-resize.ox-resize-min[_ngcontent-nsn-c123]{top:100vh}.ox-resize[_ngcontent-nsn-c123]   .ox-handle[_ngcontent-nsn-c123]{position:absolute;width:50px;height:20px;top:0;left:50%;transform:translate(-25px)}.ox-handle[_ngcontent-nsn-c123]:before{content:" ";width:22px;height:2px;opacity:.17;background-color:var(--color-core-dark01);position:absolute;top:10px;left:50%;transform:translate(-11px)}#panel[_ngcontent-nsn-c123]{position:fixed;z-index:1;width:100vw;height:100%;font-family:Open Sans;font-size:16px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:var(--color-core-dark01);background-color:transparent;overscroll-behavior-y:contain;top:100%;transition:top .3s linear}#panel[_ngcontent-nsn-c123]   .ox-content__panel[_ngcontent-nsn-c123]{background-color:var(--color-core-white)}#panel.ox-panel-show[_ngcontent-nsn-c123]{visibility:initial;top:46.9%}#panel.ox-panel-show.ox-resize-full[_ngcontent-nsn-c123]{top:0}#panel.ox-panel-show[_ngcontent-nsn-c123]   .ox-content__image[_ngcontent-nsn-c123]   .ox-content__image--show[_ngcontent-nsn-c123]{opacity:1}#panel[_ngcontent-nsn-c123] > div[_ngcontent-nsn-c123]{height:100%;position:relative}pre[_ngcontent-nsn-c123]{white-space:pre-line;font-family:Open Sans;-webkit-hyphens:auto;hyphens:auto}h1[_ngcontent-nsn-c123]{font-family:Source Sans Pro;font-size:22px;font-weight:700;margin:0 0 14px}.ox-content__content[_ngcontent-nsn-c123]   a[_ngcontent-nsn-c123]{font-weight:600;font-style:italic;color:var(--color-tertiary01);margin-top:28px;text-decoration:none;display:block}.ox-content__button[_ngcontent-nsn-c123]{width:34px;height:34px;border-radius:32px;background-color:#211f1fe6;position:absolute;top:10px;display:flex;align-items:center;justify-content:center;border:none}.ox-content__button[_ngcontent-nsn-c123]   .ox-icon[_ngcontent-nsn-c123]{width:14px;height:14px}#webar-close-button.ox-content__button[_ngcontent-nsn-c123]{right:10px}#webar-min-button.ox-content__button[_ngcontent-nsn-c123]{left:10px}#webar-min-button.ox-content__button[_ngcontent-nsn-c123]   .ox-icon[_ngcontent-nsn-c123]{transform:rotate(-45deg)}.ox-content[_ngcontent-nsn-c123]{height:calc(100% - 200px);background-color:var(--color-core-white);position:relative;padding-top:20px;box-sizing:border-box;transition:padding-top .3s}.ox-no-img[_ngcontent-nsn-c123]   .ox-content[_ngcontent-nsn-c123]{height:100%}.ox-content__content[_ngcontent-nsn-c123]{padding:0 20px 20px;height:100%;overflow:auto;box-sizing:border-box}.ox-content__image[_ngcontent-nsn-c123]{width:100%;min-height:180px;height:180px;max-height:180px;background-color:var(--color-core-dark01)}.ox-content__image[_ngcontent-nsn-c123]   img[_ngcontent-nsn-c123]{opacity:0;transition:opacity .3s linear;object-fit:cover;width:100%;height:100%}.ox-resize[_ngcontent-nsn-c123]{box-shadow:0 -2px 14px #0000001a,0 2px 24px #00000073}.ox-resize.ox-no-img[_ngcontent-nsn-c123]:not(.ox-resize-full)   .ox-content[_ngcontent-nsn-c123], .ox-resize[_ngcontent-nsn-c123]:not(.ox-resize-full)   .ox-content__image[_ngcontent-nsn-c123]   img[_ngcontent-nsn-c123]{border-top-left-radius:6px;border-top-right-radius:6px}.ox-resize[_ngcontent-nsn-c123]:not(.ox-resize-full)   .ox-content__content[_ngcontent-nsn-c123]{overflow:hidden}.ox-no-img.ox-resize-full[_ngcontent-nsn-c123]   .ox-content[_ngcontent-nsn-c123]{padding-top:50px}.ox-no-img.ox-resize-full[_ngcontent-nsn-c123]   .ox-handle[_ngcontent-nsn-c123]{top:15px}.ox-no-img[_ngcontent-nsn-c123]   .ox-content__button[_ngcontent-nsn-c123]{background-color:transparent}.ox-no-img[_ngcontent-nsn-c123]   .ox-content__button[_ngcontent-nsn-c123]   svg-icon[_ngcontent-nsn-c123]   svg[_ngcontent-nsn-c123]   g[_ngcontent-nsn-c123]{fill:var(--color-core-dark01)}@media only screen and (orientation: landscape){#panel[_ngcontent-nsn-c123]{visibility:hidden;position:fixed;z-index:1;width:100vw;height:100%;font-family:Open Sans;font-size:16px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:var(--color-core-dark01);background-color:transparent;overscroll-behavior-y:contain;top:100%}#panel.ox-panel-show[_ngcontent-nsn-c123]{visibility:initial;top:0%;left:100%!important;width:30vw!important;transform:translate(-100%);transition:transform .3s ease-in-out 0s}#panel.ox-panel-show.ox-resize-full[_ngcontent-nsn-c123]{top:0}#panel.ox-panel-show[_ngcontent-nsn-c123]   .ox-content__image[_ngcontent-nsn-c123]{min-height:240px;max-height:240px}#panel.ox-panel-show[_ngcontent-nsn-c123]   .ox-content__image[_ngcontent-nsn-c123]   .ox-content__image--show[_ngcontent-nsn-c123]{opacity:1}#panel[_ngcontent-nsn-c123] > div[_ngcontent-nsn-c123]{display:flex;flex-direction:column}.ox-no-img[_ngcontent-nsn-c123]   .ox-content[_ngcontent-nsn-c123]{padding-top:54px!important}.ox-content[_ngcontent-nsn-c123]{height:calc(100% - 240px)}}</style><style>.ox-tracking-lost[_ngcontent-nsn-c134]{position:fixed;z-index:1;width:100%;font-family:var(--font-primary);font-size:16px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:var(--color-core-dark01);background-color:transparent;box-shadow:0 -2px 14px #0000001a,0 2px 12px #211f1f3d;bottom:0;display:none}.ox-tracking-lost[_ngcontent-nsn-c134]   .ox-content[_ngcontent-nsn-c134]{background-color:var(--color-core-white);position:relative;box-sizing:border-box;transition:padding-top .3s;border-top-right-radius:6px;border-top-left-radius:6px;height:100%;padding:20px;overflow:auto}.ox-tracking-lost__description[_ngcontent-nsn-c134]{white-space:pre-line;font-family:var(--font-primary);margin:10px 0 20px;font-size:14px;font-weight:400;font-stretch:normal;font-style:normal;line-height:1.43;letter-spacing:normal}.ox-tracking-lost__title[_ngcontent-nsn-c134]{font-family:var(--font-secondary);font-size:16px;font-weight:700;font-stretch:normal;font-style:normal;line-height:1.38;letter-spacing:normal}.ox-tracking-lost__title[_ngcontent-nsn-c134]   svg-icon[_ngcontent-nsn-c134]{vertical-align:top}.ox-tracking-lost__title[_ngcontent-nsn-c134]   svg-icon[_ngcontent-nsn-c134]   path[_ngcontent-nsn-c134]{fill:var(--color-core-dark01)}.ox-tracking-lost__title[_ngcontent-nsn-c134]   svg-icon.ox-tracking-lost__close[_ngcontent-nsn-c134]{height:14px;width:14px;float:right;cursor:pointer}.ox-tracking-lost__title[_ngcontent-nsn-c134]   span[_ngcontent-nsn-c134]{margin:0 auto 10px 9px}.ox-tracking-lost[_ngcontent-nsn-c134]     button.secondary{width:100%;cursor:pointer}</style><style>.full-width[_nghost-nsn-c4]{width:100%}.full-width[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]{width:100%}.web-ar[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]{height:58px;text-transform:unset}.web-ar[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{font-size:18px;font-weight:700;display:flex;align-items:center}.web-ar[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]{margin-right:10px;width:24px;height:26px}.web-ar[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]{width:24px;height:26px}.web-ar[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-white)}.link[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]{background-image:none;background-color:transparent;padding-left:0;padding-right:0}.link[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]   span[_ngcontent-nsn-c4]{font-family:var(--font-primary);font-size:12px;font-weight:400;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:var(--color-red-pink);text-transform:none}.link[_nghost-nsn-c4]   button[_ngcontent-nsn-c4]:hover{background-image:none}button[_ngcontent-nsn-c4]{border:none;height:40px;box-sizing:border-box;padding:10px 40px;display:flex;justify-content:center;align-items:center;border-radius:10px;font-family:var(--font-primary);font-size:14px;font-weight:700;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;text-align:center;text-transform:uppercase;cursor:pointer;background-image:linear-gradient(-90deg,#f6414b 0%,var(--color-selected) 100%);color:var(--color-core-white)}button[_ngcontent-nsn-c4]:disabled, button.loading[_ngcontent-nsn-c4]{background-image:none;color:var(--color-core-white);background-color:#d2d2d2;pointer-events:none;cursor:unset}button[_ngcontent-nsn-c4]:enabled:hover{background-image:linear-gradient(90deg,#ff3f4a 8%,#ff077c 100%)}button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]{position:relative}button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]{margin-right:8px;width:12px;height:12px}button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]{width:12px;height:12px}button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-white)}button[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon.icon--right[_ngcontent-nsn-c4]{margin:0 0 0 8px}button.full-width[_ngcontent-nsn-c4]{width:100%}button.cancel[_ngcontent-nsn-c4]{border:solid 1px var(--color-selected);background:none}button.cancel[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{color:var(--color-selected)}button.cancel[_ngcontent-nsn-c4]:enabled:hover{background:var(--color-selected)}button.cancel[_ngcontent-nsn-c4]:enabled:hover   span.label[_ngcontent-nsn-c4]{color:var(--color-core-white)}button.loading[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]:before{content:" ";width:12px;height:12px;border:solid 2px transparent;border-bottom-color:var(--color-core-white);border-radius:50%;background:transparent;animation-name:_ngcontent-nsn-c4_rotate-s-loader;animation-iteration-count:infinite;animation-duration:1s;animation-timing-function:linear;box-sizing:border-box;position:absolute;top:calc(50% - 6px);left:-20px}button.secondary--white[_ngcontent-nsn-c4], button.secondary--gray[_ngcontent-nsn-c4], button.secondary--black[_ngcontent-nsn-c4], button.secondary[_ngcontent-nsn-c4]{border:solid 2px var(--color-secondary);background-image:none;background-color:transparent}button.secondary--white[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4], button.secondary--gray[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4], button.secondary--black[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4], button.secondary[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{color:var(--color-secondary)!important;background-image:none}button.secondary--white[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary--gray[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary--black[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-secondary)}button.secondary--white[_ngcontent-nsn-c4]:hover, button.secondary--gray[_ngcontent-nsn-c4]:hover, button.secondary--black[_ngcontent-nsn-c4]:hover, button.secondary[_ngcontent-nsn-c4]:hover{background-image:none;background-color:var(--color-secondary)}button.secondary--white[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4], button.secondary--gray[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4], button.secondary--black[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4], button.secondary[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]{color:var(--color-core-white)!important}button.secondary--white[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary--gray[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary--black[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4], button.secondary[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]   span.icon[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-white)}button.loading.secondary--white[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]:before, button.loading.secondary--gray[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]:before, button.loading.secondary--black[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]:before, button.loading.secondary[_ngcontent-nsn-c4]   span.text[_ngcontent-nsn-c4]:before{border-bottom-color:var(--color-secondary)}button.secondary--black[_ngcontent-nsn-c4]{border:solid 2px var(--color-core-dark01)}button.secondary--black[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{color:var(--color-core-dark01)!important}button.secondary--black[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-dark01)}button.secondary--black[_ngcontent-nsn-c4]:hover{background-color:#211f1f1f}button.secondary--black[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]{color:var(--color-core-dark01)!important}button.secondary--black[_ngcontent-nsn-c4]:hover   span.label[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-dark01)}button.secondary--gray[_ngcontent-nsn-c4]{border:solid 2px var(--color-gray01)}button.secondary--gray[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{color:var(--color-gray01)!important}button.secondary--gray[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-gray01)}button.secondary--gray[_ngcontent-nsn-c4]:hover{background-color:var(--color-gray01)}button.secondary--white[_ngcontent-nsn-c4]{border:solid 2px var(--color-core-white)}button.secondary--white[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]{color:var(--color-core-white)!important}button.secondary--white[_ngcontent-nsn-c4]   span.label[_ngcontent-nsn-c4]   svg[_ngcontent-nsn-c4]   *[_ngcontent-nsn-c4]{fill:var(--color-core-white)}button.secondary--white[_ngcontent-nsn-c4]:hover{background-color:#ffffff1f}button.small[_ngcontent-nsn-c4]{padding:3px 10px;height:auto;font-size:11px;font-weight:700;line-height:1.64;border-radius:4px}button.small.secondary--black[_ngcontent-nsn-c4]{border:solid 1px var(--color-core-dark01)}button.small.secondary--white[_ngcontent-nsn-c4]{border:solid 1px var(--color-core-white)}button.properties[_ngcontent-nsn-c4]{height:unset;border-radius:4px;background-color:var(--color-gray03);padding:2px 4px;background-image:none;color:var(--color-core-dark01);font-size:11px;font-weight:400;text-transform:capitalize;transition:all .2s cubic-bezier(.15,.2,.1,1)}button.properties[_ngcontent-nsn-c4]   svg-icon[_ngcontent-nsn-c4]     path{transition:all .2s cubic-bezier(.15,.2,.1,1);fill:currentColor!important}button.properties[_ngcontent-nsn-c4]:hover:not(.toggleable), button.properties.toggled[_ngcontent-nsn-c4], button.properties.selected[_ngcontent-nsn-c4]{background-color:var(--color-secondary);background-image:none;color:var(--color-core-white)}button.properties.properties--blue[_ngcontent-nsn-c4]{color:var(--color-tertiary01)}button.properties.properties--blue[_ngcontent-nsn-c4]:hover:not(.toggleable), button.properties.properties--blue.toggled[_ngcontent-nsn-c4], button.properties.properties--blue.selected[_ngcontent-nsn-c4]{color:var(--color-tertiary01);background-color:var(--color-gray03)}button.properties.properties--blue-hover[_ngcontent-nsn-c4]:hover:not(.toggleable), button.properties.properties--blue-hover.toggled[_ngcontent-nsn-c4], button.properties.properties--blue-hover.selected[_ngcontent-nsn-c4]{background-color:var(--color-tertiary01)}button.properties.properties--hollow[_ngcontent-nsn-c4]{border-radius:2px;border:solid 1px var(--color-gray02);color:var(--color-core-white);background-color:transparent}button.properties.properties--hollow[_ngcontent-nsn-c4]:hover:not(.toggleable), button.properties.properties--hollow.toggled[_ngcontent-nsn-c4], button.properties.properties--hollow.selected[_ngcontent-nsn-c4]{color:var(--color-core-white);background-color:transparent}button.hollow[_ngcontent-nsn-c4]{padding:20px 66px;border-radius:10px;border:solid 1px var(--color-gray02);background-image:none;background-color:transparent;color:var(--color-core-dark01);font-size:20px;font-weight:600;font-family:var(--font-secondary);text-transform:initial}button.hollow[_ngcontent-nsn-c4]:hover{background-color:var(--color-core-white);background-image:none;color:var(--color-core-dark01)}button.icon[_ngcontent-nsn-c4]{cursor:pointer;padding:5px;height:16px;width:16px;border:none;background-color:transparent;background-image:none;border-radius:50%}button.icon[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]{width:16px;height:16px}button.icon[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]{width:16px;height:16px;margin-right:0}button.icon[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon svg{width:16px!important;height:16px!important}button.icon[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon svg *{fill:var(--color-core-dark01)!important}button.icon[_ngcontent-nsn-c4]:hover{background-color:transparent;background-image:none}button.icon[_ngcontent-nsn-c4]:hover   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon>svg *{fill:var(--color-tertiary01)!important}button.icon.danger[_ngcontent-nsn-c4]:hover   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon>svg *{fill:var(--color-error)!important}button.text[_ngcontent-nsn-c4]{cursor:pointer;padding:0;font-size:12px;font-weight:700;line-height:1.5;text-transform:uppercase;color:var(--color-tertiary01);border:none;background-color:transparent;background-image:none}button.text[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]{display:flex;align-items:center}button.text[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]{width:16px;height:14px}button.text[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon svg{width:16px!important;height:14px!important}button.text[_ngcontent-nsn-c4]   .label[_ngcontent-nsn-c4]   .icon[_ngcontent-nsn-c4]     svg-icon svg *{fill:var(--color-tertiary01)!important}button.text[_ngcontent-nsn-c4]:hover{background-color:none;background-image:none}@keyframes _ngcontent-nsn-c4_rotate-s-loader{0%{transform:rotate(0)}to{transform:rotate(360deg)}}</style><link rel="canonical" href="https://studio.onirix.com/projects/ab57c19251ad495085fe0c0a28e7ad0d/webar"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><style>#loading[_ngcontent-nsn-c129]{width:100px;height:100px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block}.powered-img[_ngcontent-nsn-c129]{position:absolute;bottom:130px;left:50%;width:120px;height:20px;transform:translate(-50%)}</style><style>@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Poppins:wght@400;600;800&display=swap');<br><br>#webar-bubble-message {<br>    display: none;<br>}<br><br>.ox-game-top {<br>    position: fixed;<br>    top: 0px;<br>    left: 0px;<br>    display: none;<br>    align-items: center;<br>    justify-content: space-between;<br>    height: 60px;<br>    width: calc(100vw - 40px);<br>    background-color: #fff;<br>    opacity: 0.8;<br>    font-size: 22px;<br>    font-weight: 800;<br>    padding: 0 20px;<br>    z-index: 1;<br>}<br><br>.ox-game-top > * {<br>    width: 33%;<br>}<br><br>.ox-icon {<br>    display: flex;<br>    align-items: center;<br>}<br><br>svg g {<br>    stroke: #580088;<br>}<br><br>.ox-icon img {<br>    height: 30px;<br>}<br><br>.ox-game-msg {<br>    position: fixed;<br>    top: 80px;<br>    margin-left: 50%;<br>    transform: translateX(-50%);<br>    display: none;<br>    align-items: center;<br>    justify-content: center;<br>    height: 48px;<br>    width: 320px;<br>    border-radius: 6px;<br>    box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.12);<br>    background-color: #FFF;<br>    color: #580088;<br>    font-size: 18px;<br>    font-weight: bold;<br>    z-index: 1;<br>}<br><br><br><br>.ox-game-clock {<br>    position: fixed;<br>    bottom: 88px;<br>    margin-left: 50%;<br>    padding: 0px 20px;<br>    transform: translateX(-50%);<br>    display: none;<br>    align-items: center;<br>    justify-content: center;<br>    color: #fff;<br>    font-size: 22px;<br>    font-weight: bold;<br>    border-radius: 10px;<br>    z-index: 1;<br>}<br><br>.clock{<br>    display: flex;<br>    justify-content: center;<br>    border-bottom: 32px solid rgb(88, 0, 136);<br>    border-left: 20px solid transparent;<br>    border-right: 20px solid transparent;<br>    height: 0;<br>    width: 60px;<br>}<br><br><br>.ox-resume-game {<br>    display: none;<br>    position: fixed;<br>    bottom: 0;<br>    left: 50%;<br>    transform: translateX(-50%);<br>    background: url(https://www.onirix.com/ox-experiences/onir-ix/score-bg.svg)     no-repeat<br>     center;<br>    width: 228px;<br>    height: 56px;<br>    background-size: contain;<br>    align-items: center;<br>    justify-content: space-between;<br>    margin-bottom: 30px;<br>    z-index: 1;<br>}<br><br>#nut-image-game {<br>    width: 23.4px;<br>    height: 20px;<br>    object-fit: cover;<br>    margin-left: 20px;<br>    z-index: 1;<br>}<br><br>#ox-game-top__catched {<br>    font-family: 'Source Sans Pro', sans-serif;<br>    margin-right: 70px;<br>    font-size: 20px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: normal;<br>    letter-spacing: normal;<br>    color: #fff;<br>    z-index: 1;<br>}<br><br>#ox-game-score{<br>    font-family: 'Source Sans Pro', sans-serif;<br>    margin-right: 20px;<br>    font-size: 20px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: normal;<br>    letter-spacing: normal;<br>    color: #fff;<br>    z-index: 1;<br>}<br><br>.ox-game-clock--ending {<br>     display: flex;<br>    justify-content: center;<br>    border-bottom: 32px solid rgb(238,9,121);<br>    border-left: 20px solid transparent;<br>    border-right: 20px solid transparent;<br>    height: 0;<br>    width: 60px;<br><br>}<br><br>#endgame {<br>   display: none;<br>   position: fixed;<br>   top: 0;<br>   bottom: 0;<br>   left: 0;<br>   right: 0;<br>   background: #580088;<br>   z-index: 1;<br>}<br><br>#endgame-card {<br>    position: absolute;<br>    top: 100px;<br>    width: 100%;<br>}<br><br>#endgame-image {<br>    position: absolute;<br>    width: 121px;<br>    height: 141px;<br>    top: 0;<br>    left: 0;<br>    right: 0;<br>    margin-left: auto;<br>    margin-right: auto;<br>    z-index: 10;<br>}<br><br>#endgame-card-content {<br>    text-align: center;<br>    position: absolute;<br>    top: 141px;<br>    left: 0;<br>    right: 0;<br>    width: 320px;<br>    margin-left: auto;<br>    margin-right: auto;<br>    padding-top: 15px;<br>    padding-bottom: 20px;<br>    border-radius: 10px;<br>    background-color: #fff;<br>    height: 110px;<br>}<br><br>#endgame-card-content span {<br>    font-family: 'Source Sans Pro', sans-serif;<br>    font-size: 30px;<br>    font-weight: 800;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: 1.2;<br>    letter-spacing: normal;<br>    text-align: center;<br>    color: #31004c;<br>}<br><br>.ox-resume{<br>    text-align: center;<br>    color: white;<br>    display: none;<br>    position: fixed;<br>    left: 50%;<br>    transform: translateX(-50%);<br>    background: url(https://www.onirix.com/ox-experiences/onir-ix/score-bg.svg)     no-repeat<br>     center;<br>    width: 228px;<br>    height: 56px;<br>    background-size: contain;<br>    align-items: center;<br>    justify-content: space-between;<br>    margin-bottom: 30px;<br>    z-index: 34;<br>}<br><br>#nut-image{<br>    width: 23.4px;<br>    height: 20px;<br>    object-fit: cover;<br>    margin-left: 20px;<br>}<br><br>#ox-end__game-points{<br>    font-family: 'Source Sans Pro', sans-serif;<br>    margin-right: 20px;<br>    font-size: 20px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: normal;<br>    letter-spacing: normal;<br>    color: #fff;<br>}<br><br>#ox-end__game-nuts{<br>    font-family: 'Source Sans Pro', sans-serif;<br>    margin-right: 70px;<br>    font-size: 20px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: normal;<br>    letter-spacing: normal;<br>    color: #fff;<br>}<br><br>#play-again {<br>    align-items: center;<br>    justify-content: center;<br>    margin-top: 2;<br>    position: absolute;<br>    bottom: -25px;<br>    left: 0;<br>    right: 0;<br>    margin: 0 auto 0 auto;<br>    width: 270px;<br>    height: 50px;<br>    background-color: #EE0979;<br>    border-radius: 15px;<br>    font-family: 'Open Sans', sans-serif;<br>    font-size: 20px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: 1.3;<br>    letter-spacing: normal;<br>    text-align: center;<br>    color: #fff;<br>    display: flex;<br><br>}<br><br><br><br>#endgame-footer {<br>    position: absolute;<br>    z-index: -10;<br>    opacity: .98;<br>    bottom: 0;<br>    left: 0;<br>    right: 0;<br>    height: 152px;<br>    margin-bottom: 90px;<br>}<br><br>#endgame-footer-message {<br>    margin-top: 40px;<br>    font-family: 'Open Sans', sans-serif;<br>    font-size: 22px;<br>    font-weight: bold;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: 1.27;<br>    letter-spacing: normal;<br>    text-align: center;<br>    color: #fff;<br>}<br><br>#message {<br>    margin: 0 40px 20px 40px;<br>    font-size: 16px;<br>    font-weight: normal;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: 1.38;<br>    letter-spacing: normal;<br>    text-align: center;<br>    color: #fff;<br>}<br><br>#endgame-footer-link {<br>    display: flex;<br>    flex-direction: column;<br>    margin: 14px auto 0 auto;<br><br>}<br><br>#endgame-footer-link > a {<br>    border: 2px;<br>    font-family: 'Open Sans', sans-serif;<br>    font-size: 20px;<br>    font-weight: 600;<br>    font-stretch: normal;<br>    font-style: normal;<br>    line-height: normal;<br>    letter-spacing: normal;<br>    text-align: center;<br>    align-self: center;<br>    color: #fff;<br>    padding: 11px 47px 12px;<br>    border-radius: 12px;<br>    justify-content: center;<br>    text-decoration: none;<br>    border-style: solid;<br>    border-color: white;<br><br>}<br><br>#banner{<br>    background-color: #580088;<br>    position: fixed;<br>    top:0;<br>    left: 0;<br>    right: 0;<br>    height: 64px;<br>    z-index: 5;<br>     display: none; <br>}<br><br>#banner-image{<br>    margin: 15px 0px 21px 20px;<br>}<br><br>#webar-topbar {<br>    z-index: 10;<br>}<br><br><br><br>#ox-audio {<br>    width: 300px;<br>    height: 58px;<br>    border-radius: 6px;<br>    box-shadow: 0 2px 12px 0 rgb(33 31 31 / 24%);<br>    background-color: #fff;<br>    bottom: 0;<br>    position: fixed;<br>    left: 50%;<br>    transform: translate(-50%, -50%);<br>    z-index: 9999;<br>    display: none;<br>}<br><br>#ox-audio__container{<br>    display: grid;<br>    grid-template-columns: 0.01fr 1fr 0.15fr;<br>    -webkit-animation: fade 0.3s linear;<br>    -moz-animation: fade 0.3s linear;<br>    -ms-animation: fade 0.3s linear;<br>    -o-animation: fade 0.3s linear;<br>    animation: fade 0.3s linear;<br>}<br><br>#ox-audio__title-bold {<br>    font-weight: bold;<br>    margin: 0;<br>}<br><br>#ox-audio__title{<br>    display: flex;<br>    align-items: center;<br>    font-size: 14px;<br>}<br><br>#ox-audio__subtitle{<br>    font-size: 12px;<br>}<br><br>#ox-audio__icon {<br>    display: flex;<br>    align-items: center;<br>    height: 58px;<br>    margin-right: -10px;<br>}<br>#ox-audio__icon svg g, #ox-audio__close svg g {<br>    stroke: none !important;<br>}<br>#ox-audio__close {<br>    display: flex;<br>    align-items: center;<br>    margin-right: 2px;<br>    margin-top: 8px;<br>    cursor: pointer;<br>}<br><br>/*Animation*/<br>@keyframes fade  {<br>    from {<br>        opacity: 0;<br>      }<br>    <br>      to {<br>        opacity: 1;<br>      }<br>}<br>    <br><br>/* Firefox < 16 */<br>@-moz-keyframes fade {<br>    from {<br>        opacity: 0;<br>      }<br>    <br>      to {<br>        opacity: 1;<br>      }<br>}<br><br>/* Safari, Chrome and Opera > 12.1 */<br>@-webkit-keyframes fade {<br>    from {<br>        opacity: 0;<br>      }<br>    <br>      to {<br>        opacity: 1;<br>      }<br>}<br><br>/* Internet Explorer */<br>@-ms-keyframes fade {<br>    from {<br>        opacity: 0;<br>      }<br>    <br>      to {<br>        opacity: 1;<br>      }<br>}<br><br>/* Opera < 12.1 */<br>@-o-keyframes fade {<br>    from {<br>        opacity: 0;<br>      }<br>    <br>      to {<br>        opacity: 1;<br>      }<br>}</style><script defer="" type="module">
+/**
+ * This class is in charge of handling the interaction with the AR experience through the EmbedSDK.
+ */
+class OxExperience {
+    /**
+     * The diferents points of the game
+     */
+    pointsTable = null;
+
+    /**
+     * Indicates if the robot is going to pick up a nut
+     */
+    goingForNut = false;
+
+    /**
+     * Indicates if the nut is the type gold
+     */
+    clickedGoldNNut = false;
+
+    /**
+     * Array of the diferents positions of the gold nut
+     */
+    gold_nut_position = [];
+
+    /**
+     * Number of nuts showed
+     */
+    nuts = 0;
+
+    /**
+     * Number of nuts actives
+     */
+    nuts_in_screen = 0;
+
+    /**
+     * Game time
+     */
+    time = 60
+
+    /**
+     * Points for catch a nut
+     */
+    chunks = [
+        { chunk: 100, points: 50 }
+    ];
+
+    /**
+     * Points for catching the nut
+     */
+    defaultPoints = 50;
+
+    /**
+     * Time in which a nut a ppears
+     */
+    time_per_nut = 1000;
+
+    /**
+     * Number of gold nuts you want
+     */
+    number_gold_nuts = 6;
+
+    /**
+     * Time it takes for a non-clicked nut to disappear
+     */
+    time_disappear_nut = 5000;
+    
+    /**
+     * Time it takes for a non-clicked gold nut to disappear
+     */
+    time_disappear_gold_nut = 3000;
+    
+    /**
+     * Background music
+     */
+    bckSound = 'onir-ix-theme_v2';
+    
+    /**
+     * Music when you pick up a normal nut
+     */
+    metal_nut_sound = 'metal-nut-catch';
+    
+    /**
+     * Music when you pick up a gold nut
+     */
+    gold_nut_sound = 'golden-nut-catch';
+    
+    /**
+     * Music when the robot is moving
+     */
+    move_sound = 'roll';
+
+    /**
+     * Names of the elements in the AR experience.
+     */
+    ROBOT_ELEMENT_NAME = "robot_onirix";
+    START_NUT_NAME = "onirix_nut_x";
+    GOLD_NUT_NAME = "onirix_nut_x5_GOLD";
+
+    /**
+     * Robot element animations
+     */
+    robot_state = {
+        brake: { name: "Animation.Stop", duration: 2 },
+        wakeUp: { name: "Animation.1(On)", duration: 4.291666507720947 },
+        lookAround: { name: "Animation.2(LookAround)", duration: 8.25 },
+        circuit: { name: "Animation.3(Tour)", duration: 10.416666984558105 },
+        defuse: { name: "Animation.4(Off)", duration: 0.9583333134651184 },
+        startUp: { name: "Animation.Start", duration: 1 },
+        standarAnimation: { name: "Animation.Standar", duration: 1 },
+        onirixAnimation: { name: "Onir-IX_animation", duration: 23.83333396911621 }
+    }
+
+    /**
+     * Nut element animations
+     */
+    nut_state = {
+        pickUp: { name: "PickUp.1", duration: 1 },
+        spawn1: { name: "Spawn.1", duration: 1.3333333730697632 },
+        spawn2: { name: "Spawn.2", duration: 1.3333333730697632 }
+    }
+
+    /**
+     * State of the nuts
+     */
+    nut_group = {
+        onirix_nut_x: { screen: true, clicked: false },
+        onirix_nut_x1: { screen: false, clicked: false },
+        onirix_nut_x2: { screen: false, clicked: false },
+        onirix_nut_x3: { screen: false, clicked: false },
+        onirix_nut_x4: { screen: false, clicked: false }
+
+    }
+
+    /**
+     * Constructor
+     * Initialize the embedSDK and set points table
+     * 
+     * @param   embedsdk allows you to lister to events and control the scene content
+     */
+    constructor(embedSDK) {
+        this.embedSDK = embedSDK;
+        this.lastAnimation = new Map();
+        if (this.chunks && this.chunks.length > 0) {
+            this.pointsTable = this.chunks.map(chunk => {
+                return {
+                    seconds: Math.floor(chunk.chunk * (this.time) / 100),
+                    points: chunk.points
+                }
+            });
+            this.pointsTable.sort((a, b) => a.seconds - b.seconds);
+        } else {
+            this.pointsTable = [{ seconds: this.time, points: this.defaultPoints }];
+        }
+    }
+
+    /**
+     * Determinates if the nut is gold or no
+     * 
+     * @param   name of he nut
+     * @return  true if the nut is gold, if not false
+     */
+    isGoldNut(name) {
+        return name == this.GOLD_NUT_NAME;
+    }
+
+    /**
+     * Get the time of the game from CONFIG
+     * 
+     * @return  time the game should last
+     */
+    getTime() {
+        return this.time;
+    }
+
+    /**
+     * Play the background sound
+     */
+    playBackgroundSound() {
+        this.embedSDK.play(this.bckSound);
+    }
+
+    /**
+     * Stop the background sound
+     */
+    pauseBackgroundSound() {
+        this.embedSDK.pause(this.bckSound);
+    }
+
+    /**
+     * Initialize the game
+     */
+    async init() {
+        let num = 1;
+
+        for (let i = 0; i < this.number_gold_nuts; i++) {
+            while(this.gold_nut_position.some(pos => pos == num)){
+                num = this.random(num, this.time / (this.number_gold_nuts - i));
+            }
+
+            this.gold_nut_position.push(num);
+        }
+        this.nuts++;
+    }
+
+    /**
+     * Generate a random number between min and max
+     * 
+     * @internal
+     * @param   min value for the random number
+     * @param   max value for the random number
+     * @return  random number
+     */
+    random(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    /**
+     * Recursive method that causes a nut to appear every 4sec
+     * 
+     * @internal
+     */
+    async allNuts() {
+
+
+        if (this.gold_nut_position.some(pos => pos == this.nuts)) {
+
+            await this.rotate(this.GOLD_NUT_NAME);
+            await this.recolate(this.GOLD_NUT_NAME);
+            await this.appearsNut(this.GOLD_NUT_NAME, this.nut_state.spawn1);
+            this.nuts++;
+            this.clickedGoldNNut = false;
+            window.setTimeout(() => this.checkRemoveGoldNut(this.GOLD_NUT_NAME), this.time_disappear_gold_nut);
+
+        } else {
+            for (let nut in this.nut_group) {
+                if (this.nut_group[nut].screen == false) {
+                    await this.rotate(nut);
+                    await this.recolate(nut);
+                    await this.appearsNut(nut, this.nut_state.spawn1);
+                    this.nut_group[nut].screen = true;
+                    this.nut_group[nut].clicked = false;
+
+                    this.nuts++;
+                    window.setTimeout(() => this.checkRemoveNut(nut), this.time_disappear_nut)
+
+                    break;
+                }
+
+            }
+        }
+
+        window.setTimeout(() => this.allNuts(), this.time_per_nut)
+    }
+
+    /**
+     * Hide the nut from the screen
+     * 
+     * @internal
+     * @param nut to disabled
+     */
+    async checkRemoveNut(nut) {
+        if (this.nut_group[nut].screen && !this.nut_group[nut].clicked) {
+            this.embedSDK.disable(nut);
+            this.nut_group[nut].screen = false;
+        }
+    }
+
+    /**
+     * Hide the gold nut from the screen
+     * 
+     * @internal
+     * @param gold nut to disabled
+     */
+    async checkRemoveGoldNut(nut) {
+        if (!this.clickedGoldNNut) {
+            this.embedSDK.disable(nut);
+        }
+    }
+
+    /**
+     * Starts the game
+     */
+    async startGame() {
+        window.setTimeout(() => this.allNuts(), this.time_per_nut)
+    }
+
+    /**
+     * Execute animations forcing you to wait for your animation time
+     * 
+     * @internal
+     * @param name       name of the element where we want the animation to be applied.
+     * @param animation  name of the animation that we want to run.
+     * @param loop       if we want the animation to run in a loop, by default it always takes the false value.
+     */
+    async playAnimation(name, animation, loop = false) {
+        if (this.lastAnimation.has(name)) {
+            this.embedSDK.stopAnimation(name, this.lastAnimation.get(name));
+        }
+
+        this.lastAnimation.set(name, animation);
+        this.embedSDK.playAnimation(name, animation.name, loop);
+
+        await this.sleep(animation.duration * 1000);
+    }
+
+    /**
+     * Makes a nut appear
+     * 
+     * @internal
+     * @param name       name of the nut where we want the animation to be applied.
+     * @param animation  name of the animation that we want to run.
+     * @param loop       if we want the animation to run in a loop, by default it always takes the false value.
+     */
+    async appearsNut(nutName, animation, loop = false) {
+
+        this.embedSDK.enable(nutName);
+        await this.playAnimation(nutName, animation, loop);
+
+    }
+
+    /**
+     * Check if the robot is going to pick up a nut
+     * 
+     * @return  true if the robot is going to pick up a nut, if not false
+     */
+    isGoingForNut() {
+        return this.goingForNut;
+    }
+
+    /**
+     * Logic related to clicking on a nut
+     * 
+     * @param   params info related with the clicked nut
+     */
+    async clickNut(params) {
+
+        if (!this.goingForNut) {
+            this.goingForNut = true;
+
+            if (params.name == this.GOLD_NUT_NAME) {
+                this.clickedGoldNNut = true;
+            }
+
+            for (var nut in this.nut_group) {
+                if (nut == params.name) {
+                    this.nut_group[nut].clicked = true;
+                    break;
+                }
+            }
+
+            this.embedSDK.play(this.move_sound);
+            
+            this.embedSDK.translateToElement(this.ROBOT_ELEMENT_NAME, params.oid, 1, true, false);
+            this.playAnimation(this.ROBOT_ELEMENT_NAME, this.robot_state.startUp);
+            await this.sleep(1000);
+            this.embedSDK.pause(this.move_sound);
+
+
+            if (params.name == this.GOLD_NUT_NAME) {
+                this.embedSDK.play(this.gold_nut_sound);
+            } else {
+                this.embedSDK.play(this.metal_nut_sound);
+
+            }
+            this.embedSDK.stopAnimation(this.ROBOT_ELEMENT_NAME);
+
+            this.playAnimation(this.ROBOT_ELEMENT_NAME, this.robot_state.brake);
+
+            await this.playAnimation(params.name, this.nut_state.pickUp, false);
+            this.embedSDK.stopAnimation(params.name, this.nut_state.pickUp.name);
+
+            this.embedSDK.disable(params.name);
+
+            for (var nut in this.nut_group) {
+                if (nut == params.name) {
+                    this.nut_group[nut].screen = false;
+                    break;
+                }
+            }
+
+            this.goingForNut = false;
+        }
+
+    }
+
+    /**
+     * Position the nut in a ramdom place
+     * 
+     * @internal
+     * @param   name of he nut that must appear
+     */
+    async recolate(name) {
+
+        let randomnumX = Math.random();
+        let plusOrMinusX = Math.random() < 0.5 ? -1 : 1;
+
+        let randomnumZ = Math.random();
+        let plusOrMinusZ = Math.random() < 0.5 ? -1 : 1;
+
+        let numX = randomnumX * plusOrMinusX;
+        let numY = 0.0005;
+        let numZ = randomnumZ * plusOrMinusZ;
+
+
+        this.embedSDK.translate(name, numX, numY, numZ);
+    }
+
+    /**
+     * Rotate the nut to its base position
+     * 
+     * @internal
+     * @param   name of he nut that must appear
+     */
+    async rotate(name) {
+        this.embedSDK.rotate(name, 0, 0, 0);
+    }
+
+    /**
+     * Keeps the program waiting for as long as inscrusted
+     * 
+     * @internal
+     * @param   ms time in milliseconds that you want the program to stop
+     * @return  promise
+     */
+    async sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    /**
+     * Get the number of points
+     * 
+     * @param   time
+     * @return  number of points a nut is worth
+     */
+    getPoints(currentTime) {
+        const elapsedTime = this.time - currentTime;
+        const points = this.pointsTable.find(chunk => chunk.seconds > elapsedTime);
+        if (points) {
+            return points.points;
+        } else {
+            return this.defaultPoints;
+        }
+    }
+}
+
+
+/**
+ * This class is in charge of handling the interaction with the custom html and css code.
+ */
+class OxExperienceUI {
+    /**
+     * HTML elements ids
+     */
+    TOP_CATCHED = 'ox-game-top__catched';
+    GAME_TOP = 'ox-game-top';
+    CLOCK_SECONDS = 'ox-game-clock__seconds';
+    GAME_CLOCK = 'ox-game-clock';
+    CLOCK = "clock";
+    RESUME_GAME = 'ox-resume-game';
+
+    BANNER = 'banner';
+    ENDGAME = 'endgame';
+    RESUME = "resume-all-game";
+
+    GAME_POINTS = 'ox-end__game-points';
+    GAME_NUTS = 'ox-end__game-nuts';
+
+    GAME_MSG = 'ox-game-msg';
+    CLOCK_ENDING = 'ox-game-clock--ending';
+
+    GAME_SCORE = 'ox-game-score';
+    GAME_TOP_CATCHED = 'ox-game-top__catched';
+
+    SHARE_BUTTON = "share-button";
+    PLAY_AGAIN = "play-again";
+
+    MIN_SECOND = 11;
+
+    OX_AUDIO = 'ox-audio';
+    CLOSE = 'ox-audio__close';
+
+    /**
+     * Data to share
+     */
+    shareData = {
+        title: 'Onir-IX: the nut-picker robot',
+        text: 'Try our new experience: nut-picker robot',
+        url: 'https://studio.onirix.com/exp/eMbnOl'
+    }
+
+    /**
+     * Indicates if the game is in the last 10 seconds of the time
+     */
+    last_10_seconds = false;
+
+    /**
+     * Points achived
+     */
+    score = 0;
+
+    /**
+     * Time counter
+     */
+    time = 60;
+
+    /**
+     * Interval of time
+     */
+    timeInterval = null;
+
+    /**
+     * Indicates if the game is running
+     */
+    inProgress = false;
+
+    /**
+     * Number of nuts catched
+     */
+    catched = 0;
+    
+    /**
+     * Callback called when the game end
+     */
+    onGameEnd=null;
+    
+    /**
+     * Callback called when need points for each nut
+     */
+    onGetPoints=null;
+    
+    /**
+     * Callback called when want to know if the nut clicked is gold
+     */
+    onIsGold=null;
+    
+    /**
+     * Callback called when need to know if the robot is going to pick up a nut
+     */
+    onIsGoingForNut=null;
+    
+    /**
+     * Callback called when need the game time
+     */
+    onGetTime=null;
+
+    /**
+     * Indicates the time that the toast is available
+     */
+    availableTime = 3000;
+
+    /**
+     * Enable info bar
+     */
+    showInitBar() {
+        document.getElementById(this.GAME_TOP).style.display = 'flex';
+        document.getElementById(this.GAME_MSG).style.display = 'flex';
+    }
+
+    /**
+     * Functionality of the final screen
+     */
+    finalScreen() {
+        /*
+        document.getElementById(this.SHARE_BUTTON).addEventListener("click", () => {
+            navigator['share'](this.shareData);
+        });
+
+        document.getElementById(this.PLAY_AGAIN).addEventListener("click", () => {
+            location.reload();
+        });
+        */
+    }
+
+    /**
+     * Shows init screen
+     */
+    initUI() {
+        document.getElementById(this.SHARE_BUTTON).addEventListener("click", () => {
+            navigator['share'](this.shareData);
+        });
+
+        document.getElementById(this.PLAY_AGAIN).addEventListener("click", () => {
+            location.reload();
+        });
+
+
+        this.inProgress = true;
+        document.getElementById(this.TOP_CATCHED).innerHTML = `0`;
+        document.getElementById(this.CLOCK_SECONDS).innerHTML = `${this.onGetTime()}s`;
+        document.getElementById(this.GAME_CLOCK).style.display = 'flex';
+        document.getElementById(this.RESUME_GAME).style.display = 'flex';
+
+        this.scoreChange();
+
+        this.timeChange(this.time);
+        this.timeInterval = window.setInterval(() => {
+            this.time--;
+            this.timeChange(this.time)
+            if (0 >= this.time) {
+                this.inProgress = false;
+                this.gameEnd(this.score, this.catched);
+                window.clearInterval(this.timeInterval);
+            }
+        }, 1000);
+    }
+
+    /**
+     * Enable final screen
+     * 
+     * @internal
+     * @param   points achived
+     * @param   nuts catched
+     */
+    showOnirixEnd(points, catched) {
+        document.getElementById(this.BANNER).style.display = 'block';
+        document.getElementById(this.ENDGAME).style.display = 'block';
+        document.getElementById(this.RESUME).style.display = 'flex';
+        document.getElementById(this.GAME_POINTS).innerHTML = `${points}pts`;
+        document.getElementById(this.GAME_NUTS).innerHTML = `${catched}`;
+    }
+
+    /**
+     * Hide info bar and start the game
+     */
+    start() {
+        document.getElementById(this.GAME_MSG).style.display = 'none';
+    }
+
+    /**
+     * Update screen time
+     * 
+     * @internal
+     * @param   time elapsed
+     */
+    timeChange(currentTime) {
+        document.getElementById(this.CLOCK_SECONDS).innerHTML = `${currentTime}s`;
+        if (this.MIN_SECOND > currentTime && !this.last_10_seconds) {
+            this.last_10_seconds = true;
+            const clock = document.getElementById(this.CLOCK);
+            clock.classList.remove(this.CLOCK);
+            clock.classList.add(this.CLOCK_ENDING);
+        }
+    }
+
+    /**
+     * Update screen achived
+     * 
+     * @internal
+     */
+    scoreChange() {
+        document.getElementById(this.GAME_SCORE).innerHTML = `${this.score} pts`;
+        document.getElementById(this.GAME_TOP_CATCHED).innerHTML = `${this.catched}`;
+    }
+
+    /**
+     * Enable game end
+     * 
+     * @internal
+     * @params  points achived
+     * @param   nuts catched
+     */
+    gameEnd(points, catched) {
+        this.showOnirixEnd(points, catched);
+        this.onGameEnd();
+    }
+
+    /**
+     * Update the number of points and nuts catched
+     * 
+     * @param   params info about the clicked nut
+     */
+    async updateCatched(params) {
+        if (!this.onIsGoingForNut()) {
+            this.catched++;
+            const points = await this.onGetPoints(this.time);
+            this.score += points;
+            if (await this.onIsGold(params.name)) {
+                this.score += points;
+            }
+            this.scoreChange();
+        }
+        
+    }
+
+    /**
+     * Enable audio toast
+     */
+    toggleAudioToast() {
+        document.getElementById(this.OX_AUDIO).style.display = 'block';
+        setTimeout(() => {
+            document.getElementById(this.OX_AUDIO).style.display = 'none';
+        }, this.availableTime);
+
+        document.getElementById(this.CLOSE).addEventListener('click',() => {
+            document.getElementById(this.OX_AUDIO).style.display = 'none';
+        })
+    }
+}
+
+/**
+ * Onirix Embed SDK allows you to listen to events and control the scene when embedding experiences in a custom domain or from the online code editor.
+ * For more information visit https://docs.onirix.com/onirix-sdk/embed-sdk
+ */
+import OnirixEmbedSDK from "https://unpkg.com/@onirix/embed-sdk@1.2.3/dist/ox-embed-sdk.esm.js";
+const embedSDK = new OnirixEmbedSDK();
+await embedSDK.connect();
+const oxExperience = new OxExperience(embedSDK);
+const oxExperienceUi = new OxExperienceUI();
+oxExperienceUi.finalScreen();
+let start = false;
+
+    /**
+     * Comunicates oxExperience UI and oxExperience to stop the background sound when the game ends
+     */
+    oxExperienceUi.onGameEnd = async () => {
+        oxExperience.pauseBackgroundSound();
+    }
+
+    /**
+     * Comunicates oxExperience UI and oxExperience to get the points
+     * 
+     * @param   time to calculate the number of corresponding points
+     * @return  points for each nut
+     */
+    oxExperienceUi.onGetPoints = async (time) => {
+        return await oxExperience.getPoints(time);
+    }
+
+    /**
+     * Comunicates oxExperience UI and oxExperience to know if the nut is gold
+     * 
+     * @param   name of the nut clicked
+     * @return  true if the nut is gold, if not false
+     */
+    oxExperienceUi.onIsGold = async (name) => {
+        return await oxExperience.isGoldNut(name);
+    }
+
+    /**
+     * Comunicates oxExperience UI and oxExperience to know if the robot is going to pick up a nut
+     * 
+     * @return  true if the robot is going to pickup a nut, if not false
+     */
+    oxExperienceUi.onIsGoingForNut = () => {
+        return oxExperience.isGoingForNut();
+    }
+
+    /**
+     * Comunicates oxExperience UI and oxExperience to get the time
+     * 
+     * @return  time the game should last
+     */
+    oxExperienceUi.onGetTime = () => {
+        return oxExperience.getTime();
+    }
+
+    /**
+     * It's execute when the scene is totally load and it start the game
+     */
+    embedSDK.subscribe(OnirixEmbedSDK.Events.SCENE_LOAD_END, async (params) => {
+        oxExperienceUi.showInitBar();
+        oxExperienceUi.toggleAudioToast();
+        await oxExperience.init();
+        oxExperience.playBackgroundSound();
+    });
+
+    /**
+     * It's execute when a element of the scene is clicked. Start the game or sum points.
+     */
+    embedSDK.subscribe(OnirixEmbedSDK.Events.ELEMENT_CLICK, async (params) => {
+        if (!start) {
+            oxExperienceUi.start();
+            oxExperience.startGame();
+            oxExperienceUi.initUI(),
+            start = true;
+        }
+
+        if (params.name.includes('nut')) {
+            await oxExperience.clickNut(params);
+            oxExperienceUi.updateCatched(params);
+        }
+    });</script><style>#webar-topbar[_ngcontent-nsn-c130]{display:flex;justify-content:flex-end;width:calc(100% - 20px);padding:10px;align-items:center;position:absolute;z-index:11;pointer-events:none}#webar-topbar.webar-topbar--preview[_ngcontent-nsn-c130]{background:none}#webar-back-button[_ngcontent-nsn-c130]{margin:10px auto 10px 10px;pointer-events:auto}#webar-bubble-message[_ngcontent-nsn-c130]{flex:1 1 0;font-size:14px;color:var(--color-core-white);margin:15px 20px;flex-grow:1}#webar-fullscreen-button[_ngcontent-nsn-c130]{margin-left:auto;pointer-events:auto}#webar-context-button[_ngcontent-nsn-c130]{margin:15px 10px;pointer-events:auto}#webar-context-menu[_ngcontent-nsn-c130]{position:absolute;top:45px;right:30px;padding-left:20px;padding-right:20px;width:125px;border-radius:5px;background-color:#fff;cursor:pointer;pointer-events:auto}#webar-context-menu[_ngcontent-nsn-c130]   p[_ngcontent-nsn-c130]{position:relative;color:#000;padding:10px;margin:0;top:unset;transform:unset;border-top:1px solid #d8d8d8}#webar-context-menu[_ngcontent-nsn-c130]:hover{background-color:#9e9e9e}#webar-context-menu[_ngcontent-nsn-c130] > p[_ngcontent-nsn-c130]:first-child{border-top:unset}#webar-topbar[_ngcontent-nsn-c130]   button[_ngcontent-nsn-c130]{width:30px;height:30px;background-color:transparent;border:none;margin:0;padding:0;cursor:pointer;outline-style:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}</style><style>#webar-add-button[_ngcontent-nsn-c132]{position:absolute;z-index:1;bottom:40px;left:50%;transform:translate(-50%);width:60px;height:60px;border-radius:30px;border:none;background-image:linear-gradient(to right,#ee0979,#f6414b);outline-style:none;margin:0;padding:0;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}#target-list[_ngcontent-nsn-c132]{display:block;position:absolute;z-index:1;bottom:160px;left:50%;transform:translate(-50%);width:500px;max-width:50%;background-color:transparent;outline-style:none;border-radius:10px}.target-list-item[_ngcontent-nsn-c132]{padding:20px}.target-list-item[_ngcontent-nsn-c132]:nth-child(odd){background-color:var(--color-core-white)}.target-list-item[_ngcontent-nsn-c132]:nth-child(even){background-color:var(--color-gray03)}.target-list-item[_ngcontent-nsn-c132]:first-child{border-top-left-radius:10px;border-top-right-radius:10px}.target-list-item[_ngcontent-nsn-c132]:first-child   p[_ngcontent-nsn-c132]:first-child{font-size:20px;font-weight:700;margin-bottom:5px}.target-list-item[_ngcontent-nsn-c132]:first-child   p[_ngcontent-nsn-c132]:nth-child(2){margin-top:0}.target-list-item[_ngcontent-nsn-c132]:last-child{border-bottom-left-radius:10px;border-bottom-right-radius:10px}.target-list-item[_ngcontent-nsn-c132]   p[_ngcontent-nsn-c132]{color:var(--color-core-dark01);font-size:14px;font-weight:600;text-align:center;margin:0}.target-list-item[_ngcontent-nsn-c132]   p[_ngcontent-nsn-c132]   [_ngcontent-nsn-c132]:not(:first-child){cursor:pointer}#webar-close-button[_ngcontent-nsn-c132]{position:absolute;z-index:1;bottom:109px;left:50%;transform:translate(-50%);width:24px;height:24px;border-radius:12px;border:none;outline-style:none;margin:0;padding:0;cursor:pointer;-webkit-user-select:none;user-select:none;background:none;-webkit-tap-highlight-color:transparent}#webar-close-button[_ngcontent-nsn-c132]   svg-icon[_ngcontent-nsn-c132]{display:block;position:absolute;z-index:1;top:50%;left:50%;width:12px;height:12px;transform:translate(-50%,-50%)}#arrow-down[_ngcontent-nsn-c132]{width:0;height:0;border-bottom:10px solid transparent;border-right:10px solid transparent;border-left:10px solid transparent;position:absolute;z-index:1;bottom:140px;left:50%;transform:translate(-50%);border-top:10px solid var(--color-core-white)}#webar-move-animation[_ngcontent-nsn-c132]{position:absolute;z-index:1;top:40%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;animation:linear infinite;animation-name:_ngcontent-nsn-c132_move;animation-duration:4s;opacity:0;transition:opacity .5s}#webar-move-animation.show[_ngcontent-nsn-c132]{opacity:1}@keyframes _ngcontent-nsn-c132_move{0%{top:40%;left:50%}33%{top:50%;left:70%}66%{top:50%;left:30%}}#webar-session-end-panel[_ngcontent-nsn-c132]{position:absolute;top:0;left:0;width:100vw;height:100%;overflow:auto;background:var(--color-secondary);z-index:1;text-align:center}#webar-session-end-panel[_ngcontent-nsn-c132]   .content[_ngcontent-nsn-c132]{background:var(--color-core-white);padding:30px;border-radius:10px;max-width:400px;width:calc(100% - 100px);margin:40px auto}#webar-session-end-panel[_ngcontent-nsn-c132]   .content[_ngcontent-nsn-c132]   p[_ngcontent-nsn-c132]{font-size:20px;font-weight:700}#webar-session-end-panel[_ngcontent-nsn-c132]   ox-button[_ngcontent-nsn-c132]     button{margin:0 auto;width:100%}#webar-session-end-panel[_ngcontent-nsn-c132]   .powered-by[_ngcontent-nsn-c132]{padding:0 30px 30px;max-width:400px;width:calc(100% - 100px);color:var(--color-core-white);margin:40px auto}#webar-session-end-panel[_ngcontent-nsn-c132]   .powered-by[_ngcontent-nsn-c132]   h1[_ngcontent-nsn-c132]{font-size:20px}#webar-session-end-panel[_ngcontent-nsn-c132]   .powered-by[_ngcontent-nsn-c132]   p[_ngcontent-nsn-c132]{font-size:14px;margin:20px 0}</style></head>
+
+    <body style="overflow: hidden;">
+        <ox-root _nghost-nsn-c119="" ng-version="15.2.9"><router-outlet _ngcontent-nsn-c119=""></router-outlet><ox-webar-player _nghost-nsn-c135=""><canvas _ngcontent-nsn-c135="" id="ox-webar-renderer" width="492" height="657" class="ox-webar-renderer--ar" data-engine="three.js r149" style="position: absolute !important; width: 492px !important; height: 657px !important; left: -13.5px !important; top: 0px !important; touch-action: none !important;"></canvas><!----><ox-progress-bar _ngcontent-nsn-c135="" _nghost-nsn-c120=""><div _ngcontent-nsn-c120="" id="ox-progress-bar-container" style="height: 0px;"><div _ngcontent-nsn-c120="" id="ox-progress-bar" style="width: 0%;"></div><div _ngcontent-nsn-c120="" id="ox-progress-content"><span _ngcontent-nsn-c120="" id="ox-progress-loading-text">Loading scene ...</span><span _ngcontent-nsn-c120="" id="ox-progress-percentage-text">0%</span></div></div></ox-progress-bar><ox-top-bar _ngcontent-nsn-c135="" _nghost-nsn-c130=""><div _ngcontent-nsn-c130="" id="webar-topbar"><!----><div _ngcontent-nsn-c130="" id="webar-bubble-message"><span _ngcontent-nsn-c130=""> Move your device to detect a surface ... </span></div><!----><button _ngcontent-nsn-c130="" id="webar-context-button"><svg-icon _ngcontent-nsn-c130="" src="/assets/images/icons/context-icon-white.svg"><svg xmlns="http://www.w3.org/2000/svg" width="5" height="24" viewBox="0 0 5 24" _ngcontent-nsn-c130="" class="undefined" style="width: 24px; height: 24px;">
+    <g fill="#FFF" fill-rule="evenodd" _ngcontent-nsn-c130="">
+        <circle cx="2.5" cy="2.5" r="2.5" _ngcontent-nsn-c130=""></circle>
+        <circle cx="2.5" cy="11.7" r="2.5" _ngcontent-nsn-c130=""></circle>
+        <circle cx="2.5" cy="20.9" r="2.5" _ngcontent-nsn-c130=""></circle>
+    </g>
+</svg></svg-icon></button><!----><!----></div></ox-top-bar><!----><!----><!----><ox-surface-mode _ngcontent-nsn-c135="" _nghost-nsn-c132=""><!----><button _ngcontent-nsn-c132="" id="webar-close-button"><svg-icon _ngcontent-nsn-c132="" src="/assets/images/icons/close-white.svg"><svg width="8px" height="8px" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" _ngcontent-nsn-c132="" class="undefined" style="width: 12px; height: 12px;">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" _ngcontent-nsn-c132="">
+        <g id="Geolocated---Map-empty" transform="translate(-1232.000000, -41.000000)" fill="#FFFFFF" fill-rule="nonzero" _ngcontent-nsn-c132="">
+            <g id="Group-10" transform="translate(20.000000, 20.000000)" _ngcontent-nsn-c132="">
+                <g id="Group-2" transform="translate(1165.000000, 16.000000)" _ngcontent-nsn-c132="">
+                    <g id="Group" transform="translate(47.000000, 5.000000)" _ngcontent-nsn-c132="">
+                        <path d="M7.87435244,0.156734065 C8.02699337,0.332535147 8.03978699,0.597068383 7.91694921,0.787666355 L7.85601277,0.864350303 L4.80679947,4 L7.85601277,7.1356497 C8.04058828,7.32553983 8.04879922,7.64235041 7.87435244,7.84326593 C7.69990565,8.04418146 7.40886057,8.0531193 7.22428507,7.86322916 L3.999,4.546 L0.77571493,7.86322916 C0.611647816,8.03202039 0.363456597,8.04371298 0.187808958,7.90311809 L0.125647565,7.84326593 C-0.048799223,7.64235041 -0.0405882761,7.32553983 0.143987228,7.1356497 L0.143987228,7.1356497 L3.19320053,4 L0.143987228,0.864350303 L0.0830507941,0.787666355 C-0.0397869857,0.597068383 -0.0269933745,0.332535147 0.125647565,0.156734065 C0.300094353,-0.0441814568 0.591139426,-0.0531192988 0.77571493,0.136770836 L0.77571493,0.136770836 L4,3.453 L7.22428507,0.136770836 C7.40886057,-0.0531192988 7.69990565,-0.0441814568 7.87435244,0.156734065 Z" id="Combined-Shape" _ngcontent-nsn-c132=""></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></svg-icon></button><button _ngcontent-nsn-c132="" id="webar-add-button"><svg-icon _ngcontent-nsn-c132="" src="/assets/images/icons/add-white.svg"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" _ngcontent-nsn-c132="" class="undefined" style="width: 24px; height: 24px;">
+    <path fill="#FFFFFF" fill-rule="nonzero" d="M5.944 5.944v-5a.5.5 0 0 1 1 0v5h5a.5.5 0 1 1 0 1h-5v5a.5.5 0 1 1-1 0v-5h-5a.5.5 0 1 1 0-1h5z" _ngcontent-nsn-c132=""></path>
+</svg></svg-icon></button><div _ngcontent-nsn-c132="" id="webar-move-animation" class="show"><svg-icon _ngcontent-nsn-c132="" src="/assets/images/webar/phone-in-hand.svg"><svg width="88" height="114" viewBox="0 0 88 114" xmlns="http://www.w3.org/2000/svg" _ngcontent-nsn-c132="" class="undefined">
+    <g fill="none" fill-rule="evenodd" _ngcontent-nsn-c132="">
+        <path fill="#207CE8" opacity=".301" d="M10.96 5.505h56.507v97.531H10.96z" _ngcontent-nsn-c132=""></path>
+        <path d="M59.9 0c5.59 0 10.135 4.47 10.257 10.03l.003.23v29.488c1.92-.968 4.263-1.199 6.688-.723 3.72.731 6.898 3.004 7.472 5.799l.066.344.04.255c.03.197.052.393.069.59l.012.17.01.17c.005.114.008.229.01.345v.175c-.002.147-.006.297-.014.45l-.011.185-.015.189-.027.29-.022.2-.025.205-.029.21-.067.436-.08.462-.044.242-.1.506-.083.4-.154.712-.14.613-.345 1.486-.074.327-.133.61-.088.432-.079.413-.047.265-.043.257-.04.249c-.183 1.227-.208 2.182-.073 3.062l.019.114c.055.321.158.666.318 1.07l.112.27.128.287.096.203.103.213.09.181.991 1.899.373.724.192.382c1.267 2.588 2.083 5.034 2.5 8.006.523 3.714.338 7.953-.678 12.936-.02.1-.05.197-.087.288l-.017.144-2.604 8.197-.028.068c-9.018 21.411-26.318 25.568-50.97 12.542H17.107c-5.59 0-10.135-4.47-10.257-10.03l-.003-.23v-19.49C2.704 75.337.5 72.318.5 68.027c0-4.291 2.205-7.297 6.348-8.777v-2.499C2.38 55.305 0 52.218 0 47.758s2.382-7.533 6.848-8.945v-2.414C2.542 34.919.25 31.865.25 27.489c0-4.377 2.294-7.417 6.598-8.864V10.26C6.848 4.67 11.318.124 16.88.003L17.11 0h42.79zM24.288 5.505h-7.18a4.755 4.755 0 0 0-4.751 4.584l-.003.17v86.08a4.755 4.755 0 0 0 4.584 4.75l.17.004H44.87a26.394 26.394 0 0 1 2.124-5.06H25.7a1.126 1.126 0 0 1-.053-2.25l22.751-.002c3.372-4.816 8.472-8.444 15.3-10.882.327-.117.647-.227.959-.331l-.002-15.213-.038-.127c-1.163-3.948-1.607-7.893-1.383-11.725.158-2.717.655-5.32 1.421-7.68V10.26a4.755 4.755 0 0 0-4.584-4.752l-.17-.003h-7.93l-.638 2.421a2.25 2.25 0 0 1-2.179 1.675H27.104a2.25 2.25 0 0 1-2.179-1.675l-.637-2.421z" fill="#FFF" _ngcontent-nsn-c132=""></path>
+    </g>
+</svg></svg-icon></div><!----></ox-surface-mode><!----><!----><!----><!----><ox-datasheet-content _ngcontent-nsn-c135="" _nghost-nsn-c123=""><div _ngcontent-nsn-c123="" id="panel" dndeffectallowed="none" class="ox-no-img" draggable="true"><!----></div></ox-datasheet-content><!----><!----><ox-tracking-lost _ngcontent-nsn-c135="" _nghost-nsn-c134=""><div _ngcontent-nsn-c134="" class="ox-tracking-lost"><div _ngcontent-nsn-c134="" class="ox-content"><div _ngcontent-nsn-c134="" class="ox-tracking-lost__title"><svg-icon _ngcontent-nsn-c134="" src="assets/images/icons/icons-general-warning.svg"><svg width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" _ngcontent-nsn-c134="" class="undefined">
+    <path d="m12.783 1.623 5.45 3.147a3.586 3.586 0 0 1 1.778 3.095v6.27c0 1.27-.679 2.45-1.783 3.098l-5.445 3.144a3.588 3.588 0 0 1-3.575 0l-5.445-3.144a3.575 3.575 0 0 1-1.783-3.098v-6.27c0-1.27.679-2.449 1.783-3.098l5.445-3.144a3.588 3.588 0 0 1 3.575 0zm-2.888 1.19-5.44 3.142c-.68.4-1.1 1.129-1.1 1.91v6.27a2.2 2.2 0 0 0 1.095 1.907l5.443 3.143a2.212 2.212 0 0 0 2.202.001l5.44-3.141c.681-.4 1.1-1.129 1.1-1.91v-6.27c0-.787-.415-1.508-1.095-1.907l-5.442-3.143a2.212 2.212 0 0 0-2.203-.001zM11 13.934c.506 0 .917.41.917.917v.092a.917.917 0 0 1-1.834 0v-.092c0-.506.41-.917.917-.917zm0-7.516c.38 0 .688.307.688.687v4.813a.688.688 0 0 1-1.376 0V7.104c0-.38.308-.687.688-.687z" fill="#FFF" fill-rule="nonzero" _ngcontent-nsn-c134=""></path>
+</svg></svg-icon><span _ngcontent-nsn-c134="">World tracking lost</span><svg-icon _ngcontent-nsn-c134="" src="assets/images/icons/close.svg" class="ox-tracking-lost__close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 14.1118128 14.1118128" _ngcontent-nsn-c134="" class="ox-tracking-lost__close">
+        <path id="close" fill="#211F1F" fill-rule="nonzero" d="M0.355436962,0.341509626 C0.780426718,-0.0834801308 1.4518676,-0.111812781 1.90971751,0.256511675 L2.0043913,0.341509626 L7,5.33683643 L11.9956087,0.341509626 C12.4205985,-0.0834801308 13.0920393,-0.111812781 13.5498892,0.256511675 L13.6584904,0.355436962 C14.1138365,0.810783129 14.1138365,1.54904513 13.6584904,2.0043913 L8.66316357,7 L13.6584904,11.9956087 C14.0834801,12.4205985 14.1118128,13.0920393 13.7434883,13.5498892 L13.644563,13.6584904 C13.2195733,14.0834801 12.5481324,14.1118128 12.0902825,13.7434883 L11.9956087,13.6584904 L7,8.66316357 L2.0043913,13.6584904 C1.57940155,14.0834801 0.90796066,14.1118128 0.450110752,13.7434883 L0.341509626,13.644563 C-0.113836542,13.1892169 -0.113836542,12.4509549 0.341509626,11.9956087 L5.33683643,7 L0.341509626,2.0043913 C-0.0834801308,1.57940155 -0.111812781,0.90796066 0.256511675,0.450110752 L0.355436962,0.341509626 Z" _ngcontent-nsn-c134=""></path>
+</svg></svg-icon></div><pre _ngcontent-nsn-c134="" class="ox-tracking-lost__description">Placing the content in another nearby location automatically. You can also reset the scene and start over:</pre><ox-button _ngcontent-nsn-c134="" styleclass="secondary" label="RESET FROM OTHER SURFACE" _nghost-nsn-c4=""><button _ngcontent-nsn-c4="" class="secondary"><span _ngcontent-nsn-c4="" class="label"><!----><span _ngcontent-nsn-c4="" class="text">RESET FROM OTHER SURFACE</span><!----></span></button></ox-button></div></div></ox-tracking-lost><div _ngcontent-nsn-c135="" id="injection-root"><div class="ox-game-top" id="ox-game-top">
+    <div class="ox-icon">
+        <img src="https://www.onirix.com/ox-experiences/onir-ix/onir-ix-logo-light.svg">    
+    </div>
+</div>
+
+<div id="ox-game-msg" class="ox-game-msg">
+    Tap the first nut to start
+</div>
+
+<div id="ox-game-clock" class="ox-game-clock">
+     <div id="clock" class="clock">
+         <span id="ox-game-clock__seconds">15s</span>
+    </div>
+
+</div>
+
+<div id="ox-resume-game" class="ox-resume-game">
+        <img id="nut-image-game" src="https://www.onirix.com/ox-experiences/onir-ix/metal-nut.svg">         
+        <div id="ox-game-top__catched">0</div>
+        <div id="ox-game-score">0 pts</div>
+</div>
+
+
+<div id="banner">
+    <img id="banner-image" src="https://www.onirix.com/ox-experiences/onir-ix/onir-ix-logo-dark.svg">
+</div>
+
+<div id="endgame">
+    
+    <div id="endgame-card">
+        <img id="endgame-image" src="https://www.onirix.com/ox-experiences/onir-ix/robot-score.png">
+            <div id="endgame-card-content">
+            <span>Nice play!</span>
+            <div id="resume-all-game" class="ox-resume">
+                <img id="nut-image" src="https://www.onirix.com/ox-experiences/onir-ix/metal-nut.svg">         
+                <div id="ox-end__game-nuts">2</div>
+                <div id="ox-end__game-points">100 pts</div>
+            </div>
+
+            <a id="play-again">
+			    Play again
+		    </a>
+
+        </div>
+    </div>
+
+    <div id="endgame-footer">
+        <h1 id="endgame-footer-message">Challenge others</h1>
+        <p id="message">Share the game with others and challenge them</p>
+
+        <div id="endgame-footer-link">
+            <a id="share-button">
+		        Share the game!
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="ox-audio">
+    <div id="ox-audio__container">
+            <div id="ox-audio__icon">
+                <svg width="58" height="56" viewBox="0 0 58 56" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter x="-9%" y="-46.6%" width="118%" height="193.1%" filterUnits="objectBoundingBox" id="srumujwtua">
+                            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                            <feGaussianBlur stdDeviation="6" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                            <feColorMatrix values="0 0 0 0 0.129411765 0 0 0 0 0.121568627 0 0 0 0 0.121568627 0 0 0 0.24 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+                            <feMerge>
+                                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <g filter="url(#srumujwtua)" transform="translate(6 -2)" fill="#211F1F" fill-rule="nonzero">
+                        <path d="m21.336 23.22-2.445 1.597a1.081 1.081 0 0 1-.554.162H17.14c-2.022 0-3.14 1.167-3.14 3.275v3.493c0 2.109 1.118 3.275 3.14 3.275h1.197c.189 0 .389.06.567.17l2.432 1.59c2.527 1.653 4.805.337 4.805-2.773v-8.016c0-3.116-2.275-4.428-4.805-2.774zm3.549 2.773v8.016c0 2.08-1.191 2.769-2.882 1.663l-2.445-1.598a2.321 2.321 0 0 0-1.22-.362H17.14c-1.328 0-1.884-.58-1.884-1.965v-3.493c0-1.385.556-1.965 1.884-1.965h1.197c.42 0 .84-.125 1.208-.353l2.458-1.607c1.694-1.107 2.882-.422 2.882 1.664zM27.648 25.984a.611.611 0 0 1 .879.13 6.694 6.694 0 0 1 0 7.773.611.611 0 0 1-.88.13.674.674 0 0 1-.124-.916 5.34 5.34 0 0 0 0-6.2.674.674 0 0 1 .125-.917z"></path>
+                        <path d="M29.18 23.8a.611.611 0 0 1 .88.131c2.587 3.595 2.587 8.544 0 12.14a.611.611 0 0 1-.88.13.674.674 0 0 1-.125-.917c2.252-3.13 2.252-7.437 0-10.566a.674.674 0 0 1 .125-.917z"></path>
+                    </g>
+                </svg>
+            </div>
+            <div id="ox-audio__title">
+                <div class="row">
+                    <p id="ox-audio__title-bold">This expereince has sound</p>
+                    <span id="ox-audio__subtitle">Turn up the volume!</span>
+                </div>
+            </div>
+            <div id="ox-audio__close">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter x="-9%" y="-46.6%" width="118%" height="193.1%" filterUnits="objectBoundingBox" id="9y1gpfaeya">
+                            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                            <feGaussianBlur stdDeviation="6" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                            <feColorMatrix values="0 0 0 0 0.129411765 0 0 0 0 0.121568627 0 0 0 0 0.121568627 0 0 0 0.24 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+                            <feMerge>
+                                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <g filter="url(#9y1gpfaeya)" transform="translate(-259 -15)" fill="#E3E1E5" fill-rule="evenodd">
+                        <path d="M270.254 24.244a.833.833 0 0 1 1.11-.06l.068.06L275 27.812l3.568-3.568a.833.833 0 0 1 1.11-.06l.078.07a.833.833 0 0 1 0 1.178L276.188 29l3.568 3.568a.833.833 0 0 1 .06 1.11l-.07.078a.833.833 0 0 1-1.11.06l-.068-.06L275 30.188l-3.568 3.568a.833.833 0 0 1-1.11.06l-.078-.07a.833.833 0 0 1 0-1.178L273.812 29l-3.568-3.568a.833.833 0 0 1-.06-1.11l.07-.078z"></path>
+                    </g>
+                </svg>
+            </div>
+    </div>
+</div></div></ox-webar-player><!----><ox-messages _ngcontent-nsn-c119="" _nghost-nsn-c92=""><div _ngcontent-nsn-c92="" class="notifications"><!----></div></ox-messages><ox-loading-view _ngcontent-nsn-c119="" _nghost-nsn-c62=""><!----></ox-loading-view></ox-root>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("/service-worker.js")
+                    .then(function (registration) {
+                        console.info("Onirix SW registered", navigator);
+                    })
+                    .catch(function (err) {
+                        console.error("Onirix SW registration failed: ", err);
+                    });
+            }
+        </script>
+    <script src="runtime.6e5e86ce324ca56e.js" type="module"></script><script src="polyfills.a53bc8dd682d0ee9.js" type="module"></script><script src="scripts.87268d072ed6191f.js" defer=""></script><script src="vendor.ea4617e0006aa20e.js" type="module"></script><script src="main.5ebba3c5e061062f.js" type="module"></script>
+
+<video playsinline="true" autoplay="true" muted="" width="492" height="657" style="position: absolute; z-index: -1; width: 492px; height: 657px; left: -13.5px; top: 0px; touch-action: none;"></video></body></html>
